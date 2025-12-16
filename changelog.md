@@ -1,5 +1,6 @@
 # Changelog
 
-## v1.0 — 2025-12-15
-- Public release on GitHub Pages
-- Added canonical metadata, schema.org, reading paths, glossary, and cybernetics-first framing
+## v1.1 — 2025-12-15
+- Added Fitch’s Paradox aside + references
+- Restored/verified full TOC jump links and section anchors
+- Added schema.org metadata and accessibility tweaks
