@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://rexnfx79.github.io/constrained-structural-realism/">
+<link rel="canonical" href="https://rexnfx79.github.io/constrained-structural-realism/">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Epistemic Closure and Derivative Structure</title>
     <meta name="description" content="Rethinking Explanation After Gödel, Bell, and Holography. A manuscript exploring the structural limits of knowledge and the necessity of constrained structural realism.">
     
@@ -27,33 +30,23 @@
     <style>
         :root {
             --background: #ffffff;
-            --foreground: #0f172a;
-            --muted: #f1f5f9;
-            --muted-foreground: #64748b;
-            --primary: #0f172a;
-            --border: #e2e8f0;
-            --font-sans: 'Inter', sans-serif;
-            --font-serif: 'Crimson Pro', serif;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background: #020817;
-                --foreground: #f8fafc;
-                --muted: #1e293b;
-                --muted-foreground: #94a3b8;
-                --primary: #f8fafc;
-                --border: #1e293b;
-            }
+            --foreground: #111111;
+            --muted: #f4f4f4;
+            --muted-foreground: #555555;
+            --primary: #000000;
+            --border: #dddddd;
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-heading: "Georgia", "Times New Roman", serif;
         }
 
         body {
-            font-family: var(--font-sans);
+            font-family: var(--font-body);
             background-color: var(--background);
             color: var(--foreground);
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
+            font-size: 18px;
         }
 
         .container {
@@ -63,44 +56,37 @@
         }
 
         h1, h2, h3, h4 {
-            font-family: var(--font-serif);
+            font-family: var(--font-heading);
             color: var(--primary);
-            line-height: 1.2;
+            line-height: 1.3;
+            font-weight: 700;
         }
 
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        h2 { font-size: 1.8rem; margin-top: 3rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; margin-top: 2rem; }
+        h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
         h3 { font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.5rem; }
 
-        p { margin-bottom: 1.5rem; font-size: 1.125rem; }
+        p { margin-bottom: 1.5rem; }
         
-        ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
-        li { margin-bottom: 0.5rem; font-size: 1.125rem; }
+        ul, ol { margin-bottom: 1.5rem; padding-left: 2rem; }
+        li { margin-bottom: 0.5rem; }
 
         .abstract {
             background-color: var(--muted);
             padding: 2rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--border);
+            border-radius: 4px;
+            border-left: 4px solid #333;
             font-style: italic;
             margin-bottom: 3rem;
         }
 
         .note {
-            background-color: #fef9c3;
-            color: #854d0e;
+            background-color: #fff8e1;
+            color: #5d4037;
             padding: 1.5rem;
-            border-radius: 0.5rem;
-            border: 1px solid #fde047;
+            border-radius: 4px;
+            border: 1px solid #ffe0b2;
             margin-bottom: 3rem;
-        }
-        
-        @media (prefers-color-scheme: dark) {
-            .note {
-                background-color: #422006;
-                color: #fef08a;
-                border-color: #713f12;
-            }
         }
 
         a { color: inherit; text-decoration: underline; text-decoration-color: var(--muted-foreground); }
@@ -147,12 +133,36 @@
         }
 
         .byline {
-            font-family: var(--font-serif);
+            font-family: var(--font-heading);
             font-size: 1.25rem;
             color: var(--muted-foreground);
             margin-bottom: 3rem;
+            font-style: italic;
         }
-    </style>
+    
+.toc { border:1px solid #ddd; padding:1em 1.2em; background:#fafafa; }
+@media (min-width: 1100px){
+  .toc { position: sticky; top: 1.25rem; max-height: 80vh; overflow:auto; }
+}
+a { color: #0645ad; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Constrained Structural Realism",
+  "description": "A framework explaining why deep limits recur across logic, physics, information, and control due to embedded observers and constrained access to global structure.",
+  "author": {
+    "@type": "Person",
+    "name": "Independent Author"
+  },
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
+  "url": "https://rexnfx79.github.io/constrained-structural-realism/"
+}
+</script>
+
 </head>
 <body>
 
@@ -166,7 +176,15 @@
             </p>
         </header>
 
-        <section id="abstract" class="abstract">
+        <section class="reading-paths" aria-label="Reading paths">
+  <h2>Reading paths</h2>
+  <ul>
+    <li><strong>10-minute read:</strong> Abstract; Key claims; Bell, entanglement, and nonlocal structure; Closing.</li>
+    <li><strong>30-minute read:</strong> Add Quantum information theory; Holography and black hole information; Cybernetics and embedded control.</li>
+    <li><strong>Full read:</strong> Entire manuscript, including objections and references.</li>
+  </ul>
+</section>
+<section id="abstract" class="abstract">
             <h2 style="margin-top: 0; border: none; font-size: 1.5rem;">Abstract</h2>
             <p style="margin-bottom: 0;">
                 Across logic, mathematics, physics, information theory, and control, some of the most consequential modern results are not new mechanisms but <em>boundary theorems</em>: proof has limits (Gödel), prediction has limits (Turing), local descriptions have limits (Bell), and information extraction has limits (quantum information and gravitational bounds). These results are often treated as unrelated. This essay argues that they share a common structural source: <strong>embedded observers operate through compressed representations, and compressed internal access cannot stably reconstruct global structure</strong>. Constrained Structural Realism (CSR) preserves realism about structure while explaining why access to that structure is necessarily partial. It reframes “progress” as the discovery of invariants and constraints that survive theory change, rather than the expectation of a complete internal description.
@@ -425,7 +443,7 @@
             <h3>Bell, nonlocality, and experimental tests</h3>
             <ul>
                 <li>Bell, J. S. (1964). “On the Einstein Podolsky Rosen paradox.” <em>Physics Physique Fizika</em>.</li>
-                <li>Clauser, J. F., Horne, M. A., Shimony, A., & Holt, R. A. (1969). “Proposed experiment to test local hidden-variable theories.” <em>Physical Review Letters</em>. (CHSH)</li>
+                <li>Clauser, J. F., Horne, M. A., Shimony, A., & Holt, R. A. (1969). “Proposed experiment to test local hidden-variable theories.” <em>Physical Review Letters</em>.</li>
                 <li>Aspect, A., Dalibard, J., & Roger, G. (1982). “Experimental Test of Bell’s Inequalities Using Time-Varying Analyzers.” <em>Physical Review Letters</em>.</li>
                 <li>Weihs, G., Jennewein, T., Simon, C., Weinfurter, H., & Zeilinger, A. (1998). “Violation of Bell’s inequality under strict Einstein locality conditions.” <em>Physical Review Letters</em>.</li>
                 <li>Hensen, B., et al. (2015). “Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres.” <em>Nature</em>.</li>
@@ -436,7 +454,7 @@
             </ul>
             <h3>Quantum information constraints</h3>
             <ul>
-                <li>Wootters, W. K., & Zurek, W. H. (1982). “A single quantum cannot be cloned.” <em>Nature</em>. (No-cloning)</li>
+                <li>Wootters, W. K., & Zurek, W. H. (1982). “A single quantum cannot be cloned.” <em>Nature</em>.</li>
                 <li>Dieks, D. (1982). "Communication by EPR devices." <em>Physics Letters A</em>.</li>
                 <li>Nielsen, M. A., & Chuang, I. L. (2000). <em>Quantum Computation and Quantum Information</em>. Cambridge University Press.</li>
             </ul>
@@ -444,19 +462,19 @@
             <ul>
                 <li>Bekenstein, J. D. (1973). “Black holes and entropy.” <em>Physical Review D</em>.</li>
                 <li>Hawking, S. W. (1975). “Particle Creation by Black Holes.” <em>Communications in Mathematical Physics</em>.</li>
-                <li>’t Hooft, G. (1993). “Dimensional Reduction in Quantum Gravity.” (Foundational holography argument)</li>
+                <li>’t Hooft, G. (1993). “Dimensional Reduction in Quantum Gravity.”</li>
                 <li>Susskind, L. (1995). “The World as a Hologram.” <em>Journal of Mathematical Physics</em>.</li>
-                <li>Maldacena, J. (1997). “The Large N Limit of Superconformal Field Theories and Supergravity.” <em>Advances in Theoretical and Mathematical Physics</em>. (AdS/CFT)</li>
+                <li>Maldacena, J. (1997). “The Large N Limit of Superconformal Field Theories and Supergravity.” <em>Advances in Theoretical and Mathematical Physics</em>.</li>
                 <li>Ryu, S., & Takayanagi, T. (2006). “Holographic derivation of entanglement entropy from AdS/CFT.” <em>Physical Review Letters</em>.</li>
                 <li>Bousso, R. (2002). "The holographic principle." <em>Reviews of Modern Physics</em>.</li>
             </ul>
             <h3>Cybernetics, control, and reflexive measurement</h3>
             <ul>
                 <li>Wiener, N. (1948). <em>Cybernetics: Or Control and Communication in the Animal and the Machine</em>. MIT Press.</li>
-                <li>Ashby, W. R. (1956). <em>An Introduction to Cybernetics</em>. Chapman & Hall. (Law of Requisite Variety)</li>
+                <li>Ashby, W. R. (1956). <em>An Introduction to Cybernetics</em>. Chapman & Hall.</li>
                 <li>von Foerster, H. (1974/1981). Essays on second-order cybernetics and observing systems.</li>
-                <li>Campbell, D. T. (1979). “Assessing the impact of planned social change.” (Campbell’s Law)</li>
-                <li>Goodhart, C. A. E. (1975). “Problems of Monetary Management: The U.K. Experience.” (Goodhart’s Law, original context)</li>
+                <li>Campbell, D. T. (1979). “Assessing the impact of planned social change.”</li>
+                <li>Goodhart, C. A. E. (1975). “Problems of Monetary Management: The U.K. Experience.”</li>
                 <li>Wolpert, D. H. (2008). "Physical limits of inference." <em>Physica D: Nonlinear Phenomena</em>.</li>
             </ul>
         </section>
