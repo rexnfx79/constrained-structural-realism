@@ -146,6 +146,7 @@ Outside these conditions (e.g., idealized “oracle” access, unlimited resourc
 <li><a href="#goodhart">Goodhart and reflexive measurement: incompleteness in social systems</a></li>
 <li><a href="#csr">Constrained Structural Realism: definition, commitments, and non‑commitments</a></li>
 <li><a href="#implications">Implications: how CSR reframes research priorities and “success”</a></li>
+<li><a href="#formalization">Formalization: CSR as a no-global-joint-embedding thesis (probability language)</a></li>
 <li><a href="#objections">Objections, limits, and what would count against CSR</a></li>
 <li><a href="#closing">Closing: what this asks you to reconsider</a></li>
 <li><a href="#references">References and further reading</a></li>
@@ -332,6 +333,9 @@ CSR builds on the structural realism tradition in philosophy of science, particu
 <p>
 CSR's unique contribution is threefold: (1) <strong>explanatory mechanism</strong>—it explains why limits exist through embedded observer constraints, not just that they exist; (2) <strong>predictive power</strong>—it predicts where boundary theorems will appear (where completeness is forced, where compression is pushed, where self-reference occurs); and (3) <strong>practical guidance</strong>—it offers actionable constraints for knowledge-seeking, not just philosophical description. CSR extends ESR by adding embedded observer theory, showing that structural access limits are not arbitrary but arise from fundamental constraints on internal description.
 </p>
+<p class="small">
+For a referee-proof statement in probability language (continuous with Bell-style reasoning), see <a href="#formalization">Formalization</a>.
+</p>
 </section>
 <section id="implications">
 <h2>Implications: how CSR reframes research priorities and "success"</h2>
@@ -393,6 +397,65 @@ These constraints are not pessimistic limitations but practical tools. They help
 <h3>A change in expectations</h3>
 <p>
 Under CSR, “success” does not mean total explanation or perfect control. It means identifying stable constraints and designing within them. This is not pessimism; it is a realistic response to being inside the system.
+</p>
+</section>
+<section id="formalization">
+<h2>Formalization: CSR as a no-global-joint-embedding thesis (probability language)</h2>
+<p>
+This section formalizes CSR in a probability language continuous with Bell-style reasoning. The goal is not to reduce every boundary theorem to Bell’s scenario, but to express a shared structural core: observational access is context-indexed, and the family of operational marginals may fail to admit a single global joint embedding consistent with the relevant operational constraints.
+</p>
+<p class="small">
+<strong>Clarification (referee-proof):</strong> CSR does not deny the existence of deeper variables; it asserts that, given the operational constraints defining admissible contexts, no single probability model can jointly embed all observable marginals while satisfying those constraints.
+</p>
+<h3>Contexts and operational marginals</h3>
+<p>
+Let <strong>contexts</strong> be elements of a set <em>Ctx</em>. Each context <em>c</em> specifies which observables are jointly measurable/operationally meaningful together (e.g., a Bell setting pair (x,y), a scale, a region, an experimental arrangement). For each context <em>c</em>, let the empirically given outcome distribution be:
+</p>
+<p style="margin-left: 1.2em;">
+<strong>(Operational data)</strong> &nbsp; <code>P_c(o) := P(O_c = o)</code>.
+</p>
+<p>
+CSR starts from the family of marginals <code>{P_c}_{c∈Ctx}</code> and does <em>not</em> assume a priori that there exists a single joint distribution over “all observables in all contexts.”
+</p>
+<h3>The global-section / joint-embedding assumption</h3>
+<p>
+A strong reconstruction assumption is that there exists a single joint random object <code>O*</code> and a single joint distribution <code>P(O*)</code> such that every context distribution <code>P_c</code> is obtained as a marginal of that global joint distribution:
+</p>
+<p style="margin-left: 1.2em;">
+<strong>(Joint embeddability)</strong> &nbsp; <code>∃ P(O*)</code> such that for every context <code>c</code>, the marginal of <code>P(O*)</code> on the coordinates measured in <code>c</code> equals <code>P_c</code>.
+</p>
+<p>
+This is the “global section” assumption in contextuality language: all context-wise marginals come from one underlying joint model.
+</p>
+<h3>CSR boundary condition (core postulate)</h3>
+<p>
+CSR allows (and, in certain regimes, expects) that:
+</p>
+<p style="margin-left: 1.2em;">
+<strong>(No global embedding)</strong> &nbsp; <code>¬∃ P(O*)</code> with marginals matching <code>{P_c}</code>.
+</p>
+<p>
+Operationally, the empirical “certificate” for this failure can be a violated inequality or incompatibility criterion appropriate to the scenario (e.g., Bell/CHSH-type inequalities under stated locality/factorization assumptions; more general contextuality inequalities in noncontextual scenarios).
+</p>
+<h3>Bell as a special case (what is and isn’t implied)</h3>
+<p>
+In Bell-type experiments, contexts are setting pairs <code>c=(x,y)</code>, outcomes are <code>O_c=(A_x,B_y)</code>, and additional assumptions (e.g., factorization/local causality plus measurement-independence) imply constraints on the family <code>{P_{x,y}}</code>. Violations show that no <em>joint embedding compatible with those stated constraints</em> exists. CSR interprets this as a structural access boundary: the operational marginals cannot be represented as the shadow of a single globally accessible internal description satisfying the relevant locality/noncontextuality conditions.
+</p>
+<h3>Information-theoretic “loss” (context-indexed)</h3>
+<p>
+Given any proposed underlying variable <code>Λ</code> (latent state, microstate, or “ontic” parameter) and a context <code>c</code>, model the joint via a channel <code>P(o|c,λ)</code> and prior <code>ρ(λ)</code>:
+</p>
+<p style="margin-left: 1.2em;">
+<code>P_c(o) = ∫ P(o | c, λ) ρ(λ) dλ</code>.
+</p>
+<p>
+Define accessible information in context <code>c</code> as <code>I_c := I(Λ; O_c)</code> under that joint, and define the context-indexed loss:
+</p>
+<p style="margin-left: 1.2em;">
+<code>L(c) := H(Λ) − I(Λ; O_c)</code>.
+</p>
+<p>
+When no global embedding exists, there is in general no single joint distribution over <code>(Λ, O_{c1}, O_{c2}, ...)</code> that supports “global conditioning on all contexts at once.” CSR’s boundary claim is that some informational distinctions about <code>Λ</code> are not merely unknown but <em>non-representable as globally accessible random variables compatible with the operational constraints</em>.
 </p>
 </section>
 <section id="objections">
@@ -476,6 +539,8 @@ This list is intentionally selective and emphasizes primary sources or authorita
 <li>Giustina, M., Versteegh, M. A., Wengerowsky, S., Handsteiner, J., Hochrainer, A., Phelan, K., ... &amp; Zeilinger, A. (2015). Significant-loophole-free test of Bell's theorem with entangled photons. <em>Physical Review Letters</em>, <em>115</em>(25), Article 250401.</li>
 <li>Shalm, L. K., Meyer-Scott, E., Christensen, B. G., Bierhorst, P., Wayne, M. A., Stevens, M. J., ... &amp; Kwiat, P. G. (2015). Strong loophole-free test of local realism. <em>Physical Review Letters</em>, <em>115</em>(25), Article 250402.</li>
 <li>Goldstein, S., Norsen, T., Tausk, D. V., &amp; Zanghì, N. (2011). Bell's theorem. In E. N. Zalta (Ed.), <em>The Stanford Encyclopedia of Philosophy</em> (Spring 2011 ed.). Stanford University. <a href="https://plato.stanford.edu/entries/bell-theorem/">https://plato.stanford.edu/entries/bell-theorem/</a></li>
+<li>Fine, A. (1982). Hidden variables, joint probability, and the Bell inequalities. <em>Physical Review Letters</em>, <em>48</em>(5), 291–295.</li>
+<li>Abramsky, S., &amp; Brandenburger, A. (2011). The sheaf-theoretic structure of non-locality and contextuality. <em>New Journal of Physics</em>, <em>13</em>, 113036.</li>
 </ul>
 <h3>Quantum information constraints</h3>
 <ul>
