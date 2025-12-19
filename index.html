@@ -35,8 +35,29 @@
   .toc h2 { margin-top: 0; border-bottom: none; font-size: 1.5em; }
   blockquote { margin: 1.5em 0; padding-left: 1.2em; border-left: 4px solid #ddd; color: #444; font-style: italic; }
   code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; background: #f5f5f5; padding: 0.2em 0.4em; border-radius: 3px; }
-  /* Wikipedia-like math font stack (best-effort; depends on installed fonts). */
-  code.formula { font-family: "Latin Modern Math","STIX Two Math","XITS Math","Cambria Math","Asana Math","Noto Serif Math","Times New Roman",serif; font-size: 1em; background: transparent; padding: 0; border-radius: 0; }
+  /* Embedded math fonts (KaTeX WOFF2) for consistent “Wikipedia-like” formula rendering. */
+  @font-face {
+    font-family: "KaTeX_Main";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("assets/fonts/KaTeX_Main-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "KaTeX_Math";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("assets/fonts/KaTeX_Math-Italic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "KaTeX_Size1";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("assets/fonts/KaTeX_Size1-Regular.woff2") format("woff2");
+  }
+  code.formula { font-family: "KaTeX_Main","KaTeX_Size1","KaTeX_Math","Latin Modern Math","STIX Two Math","XITS Math","Asana Math","Noto Serif Math","Times New Roman",serif; font-size: 1em; background: transparent; padding: 0; border-radius: 0; }
   .note { background: #fffbe6; border: 1px solid #f1e3a6; padding: 1.2em; border-radius: 4px; margin: 2em 0; }
   hr { margin: 3em 0; border: 0; border-top: 1px solid #eee; }
   ul, ol { margin-top: 0.5em; padding-left: 1.5em; }
