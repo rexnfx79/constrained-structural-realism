@@ -58,6 +58,9 @@
     src: url("assets/fonts/KaTeX_Size1-Regular.woff2") format("woff2");
   }
   code.formula { font-family: "KaTeX_Main","KaTeX_Size1","KaTeX_Math","Latin Modern Math","STIX Two Math","XITS Math","Asana Math","Noto Serif Math","Times New Roman",serif; font-size: 1em; background: transparent; padding: 0; border-radius: 0; }
+  /* Inline math tokens (variables/constants) without code styling. */
+  .math { font-family: "KaTeX_Math","KaTeX_Main","KaTeX_Size1","Latin Modern Math","STIX Two Math","XITS Math","Asana Math","Noto Serif Math","Times New Roman",serif; font-style: italic; }
+  .math sup, .math sub { font-family: inherit; }
   .note { background: #fffbe6; border: 1px solid #f1e3a6; padding: 1.2em; border-radius: 4px; margin: 2em 0; }
   hr { margin: 3em 0; border: 0; border-top: 1px solid #eee; }
   ul, ol { margin-top: 0.5em; padding-left: 1.5em; }
@@ -297,7 +300,7 @@ Holographic dualities, such as AdS/CFT correspondence in string theory, exemplif
 <section id="constants">
 <h2>Why constants are constant: invariants of coherent embedded description</h2>
 <p>
-Why are <em>c</em> (speed of light), <em>G</em> (gravity), and <em>h</em> (Planck's constant) constant?
+Why are <span class="math">c</span> (speed of light), <span class="math">G</span> (gravity), and <span class="math">h</span> (Planck's constant) constant?
 </p>
 <p>
 CSR suggests they may be the <strong>structural invariants of the interface</strong>. They define the limits of causality (c), the cost of information (h), and the coupling of information to geometry (G). They are not just arbitrary numbers; they are the parameters that make a consistent embedded experience possible.
@@ -378,7 +381,7 @@ If CSR is a useful lens, it changes what we treat as a fruitful question. When t
 String theory, which aims to unify quantum mechanics and general relativity through higher-dimensional structures, provides a concrete test case for CSR's framework. CSR offers both diagnostic and prescriptive insights into string theory's challenges.
 </p>
 <p>
-<strong>CSR's diagnostic power:</strong> String theory's "landscape problem"—the existence of 10<sup>500</sup>+ possible vacua with no selection principle—is highly consistent with CSR's expectations: embedded observers cannot uniquely determine the full structure from local 4D observations. The projection from 10D to 4D is many-to-one compression, so the effective 4D physics underdetermines the compactification geometry. Similarly, the experimental inaccessibility of extra dimensions reflects an embedded observer constraint: we are limited to 3+1D measurements, and the extra dimensions are inferred rather than directly observed. Computational intractability in calculating compactification properties aligns with CSR's resource limits—finite computational resources cannot fully explore the high-dimensional space.
+<strong>CSR's diagnostic power:</strong> String theory's "landscape problem"—the existence of <span class="math">10<sup>500</sup>+</span> possible vacua with no selection principle—is highly consistent with CSR's expectations: embedded observers cannot uniquely determine the full structure from local 4D observations. The projection from 10D to 4D is many-to-one compression, so the effective 4D physics underdetermines the compactification geometry. Similarly, the experimental inaccessibility of extra dimensions reflects an embedded observer constraint: we are limited to 3+1D measurements, and the extra dimensions are inferred rather than directly observed. Computational intractability in calculating compactification properties aligns with CSR's resource limits—finite computational resources cannot fully explore the high-dimensional space.
 </p>
 <p>
 <strong>CSR's predicted limits:</strong> From CSR's compression principle, we cannot uniquely determine the compactification geometry from 4D observations alone—the mapping is many-to-one, so the full higher-dimensional structure is underdetermined by local access. We can only access effective 4D observables (particle masses, coupling constants), boundary conditions (holographic dualities), and invariants that survive projection (topological properties, symmetries). Different string theory descriptions (Type I, IIA, IIB, heterotic, M-theory) may remain complementary rather than converging to a single description, consistent with CSR's expectation that complementarity persists. When calculations diverge or become intractable, CSR suggests these signal regime boundaries where the description breaks down, not problems to be solved by more computation.
@@ -432,20 +435,20 @@ This section formalizes CSR in a probability language continuous with Bell-style
 </p>
 <h3>Contexts and operational marginals</h3>
 <p>
-Let <strong>contexts</strong> be elements of a set <em>Ctx</em>. Each context <em>c</em> specifies which observables are jointly measurable/operationally meaningful together (e.g., a Bell setting pair (x,y), a scale, a region, an experimental arrangement). For each context <em>c</em>, let the empirically given outcome distribution be:
+Let <strong>contexts</strong> be elements of a set <span class="math">Ctx</span>. Each context <span class="math">c</span> specifies which observables are jointly measurable/operationally meaningful together (e.g., a Bell setting pair (x,y), a scale, a region, an experimental arrangement). For each context <span class="math">c</span>, let the empirically given outcome distribution be:
 </p>
 <p style="margin-left: 1.2em;">
-<strong>(Operational data)</strong> &nbsp; <code class="formula">P_c(o) := P(O_c = o)</code>.
+<strong>(Operational data)</strong> &nbsp; <code class="formula">P<sub>c</sub>(o) := P(O<sub>c</sub> = o)</code>.
 </p>
 <p>
-CSR starts from the family of marginals <code class="formula">{P_c}_{c∈Ctx}</code> and does <em>not</em> assume a priori that there exists a single joint distribution over “all observables in all contexts.”
+CSR starts from the family of marginals <code class="formula">{P<sub>c</sub>}<sub>c∈Ctx</sub></code> and does <em>not</em> assume a priori that there exists a single joint distribution over “all observables in all contexts.”
 </p>
 <h3>The global-section / joint-embedding assumption</h3>
 <p>
-A strong reconstruction assumption is that there exists a single joint random object <code class="formula">O*</code> and a single joint distribution <code class="formula">P(O*)</code> such that every context distribution <code class="formula">P_c</code> is obtained as a marginal of that global joint distribution:
+A strong reconstruction assumption is that there exists a single joint random object <code class="formula">O*</code> and a single joint distribution <code class="formula">P(O*)</code> such that every context distribution <code class="formula">P<sub>c</sub></code> is obtained as a marginal of that global joint distribution:
 </p>
 <p style="margin-left: 1.2em;">
-<strong>(Joint embeddability)</strong> &nbsp; <code class="formula">∃ P(O*)</code> such that for every context <code class="formula">c</code>, the marginal of <code class="formula">P(O*)</code> on the coordinates measured in <code class="formula">c</code> equals <code class="formula">P_c</code>.
+<strong>(Joint embeddability)</strong> &nbsp; <code class="formula">∃ P(O*)</code> such that for every context <code class="formula">c</code>, the marginal of <code class="formula">P(O*)</code> on the coordinates measured in <code class="formula">c</code> equals <code class="formula">P<sub>c</sub></code>.
 </p>
 <p>
 This is the “global section” assumption in contextuality language: all context-wise marginals come from one underlying joint model.
@@ -455,30 +458,30 @@ This is the “global section” assumption in contextuality language: all conte
 CSR allows (and, in certain regimes, expects) that:
 </p>
 <p style="margin-left: 1.2em;">
-<strong>(No global embedding)</strong> &nbsp; <code class="formula">¬∃ P(O*)</code> with marginals matching <code class="formula">{P_c}</code>.
+<strong>(No global embedding)</strong> &nbsp; <code class="formula">¬∃ P(O*)</code> with marginals matching <code class="formula">{P<sub>c</sub>}</code>.
 </p>
 <p>
 Operationally, the empirical “certificate” for this failure can be a violated inequality or incompatibility criterion appropriate to the scenario (e.g., Bell/CHSH-type inequalities under stated locality/factorization assumptions; more general contextuality inequalities in noncontextual scenarios).
 </p>
 <h3>Bell as a special case (what is and isn’t implied)</h3>
 <p>
-In Bell-type experiments, contexts are setting pairs <code class="formula">c=(x,y)</code>, outcomes are <code class="formula">O_c=(A_x,B_y)</code>, and additional assumptions (e.g., factorization/local causality plus measurement-independence) imply constraints on the family <code class="formula">{P_{x,y}}</code>. Violations show that no <em>joint embedding compatible with those stated constraints</em> exists. CSR interprets this as a structural access boundary: the operational marginals cannot be represented as the shadow of a single globally accessible internal description satisfying the relevant locality/noncontextuality conditions.
+In Bell-type experiments, contexts are setting pairs <code class="formula">c=(x,y)</code>, outcomes are <code class="formula">O<sub>c</sub>=(A<sub>x</sub>,B<sub>y</sub>)</code>, and additional assumptions (e.g., factorization/local causality plus measurement-independence) imply constraints on the family <code class="formula">{P<sub>x,y</sub>}</code>. Violations show that no <em>joint embedding compatible with those stated constraints</em> exists. CSR interprets this as a structural access boundary: the operational marginals cannot be represented as the shadow of a single globally accessible internal description satisfying the relevant locality/noncontextuality conditions.
 </p>
 <h3>Information-theoretic “loss” (context-indexed)</h3>
 <p>
 Given any proposed underlying variable <code class="formula">Λ</code> (latent state, microstate, or “ontic” parameter) and a context <code class="formula">c</code>, model the joint via a channel <code class="formula">P(o|c,λ)</code> and prior <code class="formula">ρ(λ)</code>:
 </p>
 <p style="margin-left: 1.2em;">
-<code class="formula">P_c(o) = ∫ P(o | c, λ) ρ(λ) dλ</code>.
+<code class="formula">P<sub>c</sub>(o) = ∫ P(o | c, λ) ρ(λ) dλ</code>.
 </p>
 <p>
-Define accessible information in context <code class="formula">c</code> as <code class="formula">I_c := I(Λ; O_c)</code> under that joint, and define the context-indexed loss:
+Define accessible information in context <code class="formula">c</code> as <code class="formula">I<sub>c</sub> := I(Λ; O<sub>c</sub>)</code> under that joint, and define the context-indexed loss:
 </p>
 <p style="margin-left: 1.2em;">
-<code class="formula">L(c) := H(Λ) − I(Λ; O_c)</code>.
+<code class="formula">L(c) := H(Λ) − I(Λ; O<sub>c</sub>)</code>.
 </p>
 <p>
-When no global embedding exists, there is in general no single joint distribution over <code class="formula">(Λ, O_{c1}, O_{c2}, ...)</code> that supports “global conditioning on all contexts at once.” CSR’s boundary claim is that some informational distinctions about <code class="formula">Λ</code> are not merely unknown but <em>non-representable as globally accessible random variables compatible with the operational constraints</em>.
+When no global embedding exists, there is in general no single joint distribution over <code class="formula">(Λ, O<sub>c1</sub>, O<sub>c2</sub>, ...)</code> that supports “global conditioning on all contexts at once.” CSR’s boundary claim is that some informational distinctions about <code class="formula">Λ</code> are not merely unknown but <em>non-representable as globally accessible random variables compatible with the operational constraints</em>.
 </p>
 </section>
 <section id="objections">
