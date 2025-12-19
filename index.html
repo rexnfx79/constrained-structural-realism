@@ -35,6 +35,8 @@
   .toc h2 { margin-top: 0; border-bottom: none; font-size: 1.5em; }
   blockquote { margin: 1.5em 0; padding-left: 1.2em; border-left: 4px solid #ddd; color: #444; font-style: italic; }
   code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; background: #f5f5f5; padding: 0.2em 0.4em; border-radius: 3px; }
+  /* Wikipedia-like math font stack (best-effort; depends on installed fonts). */
+  code.formula { font-family: "Latin Modern Math","STIX Two Math","XITS Math","Cambria Math","Asana Math","Noto Serif Math","Times New Roman",serif; font-size: 1em; background: transparent; padding: 0; border-radius: 0; }
   .note { background: #fffbe6; border: 1px solid #f1e3a6; padding: 1.2em; border-radius: 4px; margin: 2em 0; }
   hr { margin: 3em 0; border: 0; border-top: 1px solid #eee; }
   ul, ol { margin-top: 0.5em; padding-left: 1.5em; }
@@ -412,17 +414,17 @@ This section formalizes CSR in a probability language continuous with Bell-style
 Let <strong>contexts</strong> be elements of a set <em>Ctx</em>. Each context <em>c</em> specifies which observables are jointly measurable/operationally meaningful together (e.g., a Bell setting pair (x,y), a scale, a region, an experimental arrangement). For each context <em>c</em>, let the empirically given outcome distribution be:
 </p>
 <p style="margin-left: 1.2em;">
-<strong>(Operational data)</strong> &nbsp; <code>P_c(o) := P(O_c = o)</code>.
+<strong>(Operational data)</strong> &nbsp; <code class="formula">P_c(o) := P(O_c = o)</code>.
 </p>
 <p>
-CSR starts from the family of marginals <code>{P_c}_{c∈Ctx}</code> and does <em>not</em> assume a priori that there exists a single joint distribution over “all observables in all contexts.”
+CSR starts from the family of marginals <code class="formula">{P_c}_{c∈Ctx}</code> and does <em>not</em> assume a priori that there exists a single joint distribution over “all observables in all contexts.”
 </p>
 <h3>The global-section / joint-embedding assumption</h3>
 <p>
-A strong reconstruction assumption is that there exists a single joint random object <code>O*</code> and a single joint distribution <code>P(O*)</code> such that every context distribution <code>P_c</code> is obtained as a marginal of that global joint distribution:
+A strong reconstruction assumption is that there exists a single joint random object <code class="formula">O*</code> and a single joint distribution <code class="formula">P(O*)</code> such that every context distribution <code class="formula">P_c</code> is obtained as a marginal of that global joint distribution:
 </p>
 <p style="margin-left: 1.2em;">
-<strong>(Joint embeddability)</strong> &nbsp; <code>∃ P(O*)</code> such that for every context <code>c</code>, the marginal of <code>P(O*)</code> on the coordinates measured in <code>c</code> equals <code>P_c</code>.
+<strong>(Joint embeddability)</strong> &nbsp; <code class="formula">∃ P(O*)</code> such that for every context <code class="formula">c</code>, the marginal of <code class="formula">P(O*)</code> on the coordinates measured in <code class="formula">c</code> equals <code class="formula">P_c</code>.
 </p>
 <p>
 This is the “global section” assumption in contextuality language: all context-wise marginals come from one underlying joint model.
@@ -432,30 +434,30 @@ This is the “global section” assumption in contextuality language: all conte
 CSR allows (and, in certain regimes, expects) that:
 </p>
 <p style="margin-left: 1.2em;">
-<strong>(No global embedding)</strong> &nbsp; <code>¬∃ P(O*)</code> with marginals matching <code>{P_c}</code>.
+<strong>(No global embedding)</strong> &nbsp; <code class="formula">¬∃ P(O*)</code> with marginals matching <code class="formula">{P_c}</code>.
 </p>
 <p>
 Operationally, the empirical “certificate” for this failure can be a violated inequality or incompatibility criterion appropriate to the scenario (e.g., Bell/CHSH-type inequalities under stated locality/factorization assumptions; more general contextuality inequalities in noncontextual scenarios).
 </p>
 <h3>Bell as a special case (what is and isn’t implied)</h3>
 <p>
-In Bell-type experiments, contexts are setting pairs <code>c=(x,y)</code>, outcomes are <code>O_c=(A_x,B_y)</code>, and additional assumptions (e.g., factorization/local causality plus measurement-independence) imply constraints on the family <code>{P_{x,y}}</code>. Violations show that no <em>joint embedding compatible with those stated constraints</em> exists. CSR interprets this as a structural access boundary: the operational marginals cannot be represented as the shadow of a single globally accessible internal description satisfying the relevant locality/noncontextuality conditions.
+In Bell-type experiments, contexts are setting pairs <code class="formula">c=(x,y)</code>, outcomes are <code class="formula">O_c=(A_x,B_y)</code>, and additional assumptions (e.g., factorization/local causality plus measurement-independence) imply constraints on the family <code class="formula">{P_{x,y}}</code>. Violations show that no <em>joint embedding compatible with those stated constraints</em> exists. CSR interprets this as a structural access boundary: the operational marginals cannot be represented as the shadow of a single globally accessible internal description satisfying the relevant locality/noncontextuality conditions.
 </p>
 <h3>Information-theoretic “loss” (context-indexed)</h3>
 <p>
-Given any proposed underlying variable <code>Λ</code> (latent state, microstate, or “ontic” parameter) and a context <code>c</code>, model the joint via a channel <code>P(o|c,λ)</code> and prior <code>ρ(λ)</code>:
+Given any proposed underlying variable <code class="formula">Λ</code> (latent state, microstate, or “ontic” parameter) and a context <code class="formula">c</code>, model the joint via a channel <code class="formula">P(o|c,λ)</code> and prior <code class="formula">ρ(λ)</code>:
 </p>
 <p style="margin-left: 1.2em;">
-<code>P_c(o) = ∫ P(o | c, λ) ρ(λ) dλ</code>.
+<code class="formula">P_c(o) = ∫ P(o | c, λ) ρ(λ) dλ</code>.
 </p>
 <p>
-Define accessible information in context <code>c</code> as <code>I_c := I(Λ; O_c)</code> under that joint, and define the context-indexed loss:
+Define accessible information in context <code class="formula">c</code> as <code class="formula">I_c := I(Λ; O_c)</code> under that joint, and define the context-indexed loss:
 </p>
 <p style="margin-left: 1.2em;">
-<code>L(c) := H(Λ) − I(Λ; O_c)</code>.
+<code class="formula">L(c) := H(Λ) − I(Λ; O_c)</code>.
 </p>
 <p>
-When no global embedding exists, there is in general no single joint distribution over <code>(Λ, O_{c1}, O_{c2}, ...)</code> that supports “global conditioning on all contexts at once.” CSR’s boundary claim is that some informational distinctions about <code>Λ</code> are not merely unknown but <em>non-representable as globally accessible random variables compatible with the operational constraints</em>.
+When no global embedding exists, there is in general no single joint distribution over <code class="formula">(Λ, O_{c1}, O_{c2}, ...)</code> that supports “global conditioning on all contexts at once.” CSR’s boundary claim is that some informational distinctions about <code class="formula">Λ</code> are not merely unknown but <em>non-representable as globally accessible random variables compatible with the operational constraints</em>.
 </p>
 </section>
 <section id="objections">
