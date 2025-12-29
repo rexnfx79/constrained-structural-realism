@@ -1,5 +1,31 @@
 # Changelog
 
+## v1.3 — 2025-12-28
+Added philosophical positioning to strengthen scholarly context:
+
+### Expanded "Relationship to structural realism" section
+- Added distinction between CSR and Ontic Structural Realism (Ladyman & Ross)
+- Added contrast with Constructive Empiricism (van Fraassen): CSR's restraint is structurally enforced, not voluntary
+- Added engagement with anti-fundamentalism (Cartwright): CSR explains why the world appears "dappled" while preserving realism
+
+### New "Related philosophical positions" subsection
+- **Morrison**: Models as mediators—direct support for CSR's compression/projection framework
+- **Earman**: Singularities as theory limits—alignment with CSR's interpretation of boundaries
+- **Friedman**: Conceptual frameworks—CSR constrains what any framework can claim
+- **Maudlin**: Physics-literate metaphysics—methodological alignment
+
+### New references section: "Philosophy of science: limits, models, and frameworks"
+- van Fraassen (1980) *The Scientific Image*
+- Cartwright (1983) *How the Laws of Physics Lie*
+- Cartwright (1999) *The Dappled World*
+- Earman (1989) *World Enough and Space-Time*
+- Earman (1995) *Bangs, Crunches, Whimpers, and Shrieks*
+- Morgan & Morrison (1999) *Models as Mediators*
+- Friedman (2001) *Dynamics of Reason*
+- Maudlin (2007) *The Metaphysics Within Physics*
+- Morrison (2015) *Reconstructing Reality*
+- Ladyman & Ross (2007) *Every Thing Must Go*
+
 ## v1.2 — 2025-12-28
 Revised to address concerns from physicist and quantum information theorist reviewers:
 
