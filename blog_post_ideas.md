@@ -183,3 +183,4 @@ These 12 blog post concepts are designed to introduce key CSR themes to a genera
 **For philosophical readers:**
 - **#6 (Map/Territory)** → **#10 (Gödel)** → **#12 (Without Despair)** → paper
 
+
