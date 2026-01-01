@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Guide: Appendix E — Cohomological Formalization of CSR</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+    
+    :root {
+      --bg: #faf9f7;
+      --text: #2d2d2d;
+      --accent: #8b4513;
+      --highlight: #f5f0e6;
+      --border: #d4c4a8;
+      --code-bg: #f0ebe3;
+      --phase1: #2e5a3a;
+      --phase2: #4a3b6b;
+      --phase3: #6b3a3a;
+      --phase4: #3a5a6b;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      font-style: italic;
+      color: #666;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 2.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    
+    h2.phase1 { background: var(--phase1); color: white; }
+    h2.phase2 { background: var(--phase2); color: white; }
+    h2.phase3 { background: var(--phase3); color: white; }
+    h2.phase4 { background: var(--phase4); color: white; }
+    
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+    }
+    
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    
+    th {
+      background: var(--highlight);
+      border: 1px solid var(--border);
+      padding: 0.6rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      border: 1px solid var(--border);
+      padding: 0.6rem;
+      vertical-align: top;
+    }
+    
+    tr:nth-child(even) {
+      background: rgba(0,0,0,0.02);
+    }
+    
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em;
+      background: var(--code-bg);
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+    }
+    
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 1.2rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    
+    pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+    
+    .note {
+      background: var(--highlight);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    
+    .note strong {
+      color: var(--accent);
+    }
+    
+    .practice {
+      background: #e8f4e8;
+      border-left: 4px solid var(--phase1);
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    
+    .practice strong {
+      color: var(--phase1);
+    }
+    
+    .key-insight {
+      background: #f0e8f4;
+      border-left: 4px solid var(--phase2);
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    
+    .key-insight strong {
+      color: var(--phase2);
+    }
+    
+    .formula {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+    }
+    
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin: 0.5rem 0;
+    }
+    
+    .timeline {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0.5rem 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .timeline-week {
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    .quick-ref {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+    
+    .quick-ref .label {
+      color: #66d9ef;
+      font-weight: 500;
+    }
+    
+    .quick-ref .comment {
+      color: #75715e;
+    }
+    
+    hr {
+      border: none;
+      border-top: 2px solid var(--border);
+      margin: 3rem 0;
+    }
+    
+    @media print {
+      body {
+        font-size: 11pt;
+        max-width: none;
+        padding: 0;
+      }
+      
+      h2 {
+        break-after: avoid;
+      }
+      
+      .note, .practice, .key-insight {
+        break-inside: avoid;
+      }
+      
+      pre, .quick-ref {
+        break-inside: avoid;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+        font-size: 16px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      table {
+        font-size: 0.85rem;
+      }
+      
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Study Guide: Appendix E</h1>
+<p class="subtitle">Cohomological Formalization of Constrained Structural Realism</p>
+
+<div class="note">
+<strong>Purpose:</strong> This guide takes you from foundational concepts to full comprehension of the sheaf-theoretic framework used in Appendix E. Estimated total time: 8-10 weeks of part-time study.
+</div>
+
+<hr>
+
+<h2 class="phase1">Phase 1: Foundations (2-3 weeks)</h2>
+
+<h3>1.1 Category Theory Basics</h3>
+<p><strong>Goal:</strong> Understand functors as structure-preserving maps between mathematical worlds.</p>
+
+<table>
+<tr>
+<th>Concept</th>
+<th>What to Learn</th>
+<th>Resource</th>
+</tr>
+<tr>
+<td>Categories</td>
+<td>Objects, morphisms, composition, identity</td>
+<td>Awodey Ch. 1 or <a href="https://ncatlab.org/nlab/show/category">nLab: category</a></td>
+</tr>
+<tr>
+<td>Functors</td>
+<td>Covariant vs. contravariant functors</td>
+<td>Awodey Ch. 4</td>
+</tr>
+<tr>
+<td>Natural transformations</td>
+<td>Maps between functors</td>
+<td>Awodey Ch. 7</td>
+</tr>
+</table>
+
+<div class="practice">
+<strong>Practice:</strong> Draw the category of sets (objects = sets, morphisms = functions). Draw the category of groups. Identify a functor between them (the "underlying set" functor).
+</div>
+
+<div class="note">
+<strong>Connection to Appendix E:</strong> The presheaf <code>F: C<sup>op</sup> → Set</code> is a contravariant functor. Understanding this is essential for everything that follows.
+</div>
+
+<h3>1.2 Set-Theoretic Topology</h3>
+<p><strong>Goal:</strong> Understand open covers and local-to-global problems.</p>
+
+<table>
+<tr>
+<th>Concept</th>
+<th>What to Learn</th>
+<th>Why It Matters</th>
+</tr>
+<tr>
+<td>Open sets & covers</td>
+<td>A space covered by overlapping patches</td>
+<td>Sheaves generalize this to any category</td>
+</tr>
+<tr>
+<td>Partitions of unity</td>
+<td>Gluing local functions into global ones</td>
+<td>This is the "gluing axiom" in sheaf theory</td>
+</tr>
+</table>
+
+<div class="key-insight">
+<strong>Key Intuition:</strong> Think of a map of the Earth. Each page shows a region (local). Can you always stitch pages into a globe (global)? Sometimes no—and that failure is an <em>obstruction</em>. This is exactly what Appendix E formalizes.
+</div>
+
+<hr>
+
+<h2 class="phase2">Phase 2: Sheaves and Presheaves (2-3 weeks)</h2>
+
+<h3>2.1 Presheaves</h3>
+<p><strong>Goal:</strong> Understand presheaves as "local data assignments."</p>
+
+<p><strong>Definition:</strong> A presheaf on a category <code>C</code> is a functor <code class="formula">F: C<sup>op</sup> → Set</code></p>
+
+<p><strong>Intuition:</strong></p>
+<ul>
+<li>For each "context" <code>U</code> in <code>C</code>, you get a set <code>F(U)</code> of "possible data"</li>
+<li>For each inclusion <code>V ⊆ U</code>, you get a "restriction" map <code>F(U) → F(V)</code></li>
+</ul>
+
+<p><strong>Example (from Section E.1):</strong></p>
+<pre><code>Context = measurement setting {A₀, B₀}
+F({A₀, B₀}) = all possible outcome pairs {(+,+), (+,-), (-,+), (-,-)}
+
+Restriction: If you "forget" measurement B₀, you restrict to just A₀'s outcomes.</code></pre>
+
+<p><strong>Resource:</strong> Mac Lane & Moerdijk, <em>Sheaves in Geometry and Logic</em>, Chapters 1-2</p>
+
+<h3>2.2 The Sheaf Condition (Gluing Axiom)</h3>
+<p><strong>Goal:</strong> Understand when local data extends to global data.</p>
+
+<p>A presheaf <code>F</code> is a <strong>sheaf</strong> if it satisfies:</p>
+<ol>
+<li><strong>Locality:</strong> If two global sections agree on every local piece, they're equal</li>
+<li><strong>Gluing:</strong> If local sections agree on overlaps, they glue to a global section</li>
+</ol>
+
+<div class="key-insight">
+<strong>Key Insight for Appendix E:</strong> When the gluing axiom <em>fails</em>, you have an obstruction. This is precisely what Gödel, Bell, and Bekenstein are about—local descriptions exist, but they cannot be glued into a consistent global picture.
+</div>
+
+<div class="practice">
+<strong>Practice Problem:</strong><br>
+Consider the presheaf of "continuous functions" on a circle. Can you always glue local functions into a global one? <em>(Yes—this is a sheaf.)</em><br><br>
+Now consider "single-valued square root functions" on the complex plane minus zero. Can you glue them around the origin? <em>(No—there's a branch cut. The obstruction lives in H¹.)</em>
+</div>
+
+<h3>2.3 Čech Cohomology</h3>
+<p><strong>Goal:</strong> Understand cohomology as "obstruction measurement."</p>
+
+<p><strong>Intuition:</strong></p>
+<ul>
+<li><code class="formula">H⁰(X, F)</code> = global sections (data that exists everywhere consistently)</li>
+<li><code class="formula">H¹(X, F)</code> = obstructions to gluing (why local sections don't globalize)</li>
+<li><code class="formula">H²(X, F)</code> = obstructions to obstructions (higher-order issues)</li>
+</ul>
+
+<p><strong>The Key Formula:</strong></p>
+<pre><code>H¹(X, F) ≠ 0  ⟺  Local sections exist but NO global section exists</code></pre>
+
+<p>This single statement is the mathematical heart of Appendix E.</p>
+
+<p><strong>Resource:</strong> Bott & Tu, <em>Differential Forms in Algebraic Topology</em>, Chapters 1-2 (for geometric intuition)</p>
+
+<hr>
+
+<h2 class="phase3">Phase 3: The Three Applications (3-4 weeks)</h2>
+
+<h3>3.1 Bell Nonlocality (Section E.1)</h3>
+<p><strong>Read first:</strong> Abramsky & Brandenburger (2011), Sections 1-3</p>
+
+<h4>The Setup</h4>
+<table>
+<tr>
+<th>Component</th>
+<th>Mathematical Object</th>
+</tr>
+<tr>
+<td>Measurements</td>
+<td>Set <code class="formula">X = {A₀, A₁, B₀, B₁}</code></td>
+</tr>
+<tr>
+<td>Contexts</td>
+<td><code class="formula">M = {{A₀,B₀}, {A₀,B₁}, {A₁,B₀}, {A₁,B₁}}</code></td>
+</tr>
+<tr>
+<td>Events presheaf</td>
+<td><code class="formula">E(C) = O<sup>C</sup></code> (outcome assignments)</td>
+</tr>
+<tr>
+<td>Empirical model</td>
+<td>Probability distributions on each context</td>
+</tr>
+</table>
+
+<h4>The Theorem</h4>
+<p>CHSH inequality violation ⟺ <code class="formula">[ω<sub>Bell</sub>] ∈ H¹(M, E)</code> is non-trivial</p>
+
+<div class="practice">
+<strong>Study Exercise:</strong> Draw the "CHSH scenario" as a simplicial complex—four contexts forming a square where adjacent contexts share one measurement. Visualize why local probability distributions (one per context) can't extend to a single global distribution over all four measurements.
+</div>
+
+<h3>3.2 Gödelian Incompleteness (Section E.2)</h3>
+<p><strong>Background needed:</strong> Basic mathematical logic (Peano Arithmetic, consistency, completeness)</p>
+
+<h4>The Setup</h4>
+<table>
+<tr>
+<th>Component</th>
+<th>Mathematical Object</th>
+</tr>
+<tr>
+<td>Context space</td>
+<td>Category <code class="formula">Th</code> of consistent PA extensions</td>
+</tr>
+<tr>
+<td>Provable sentences</td>
+<td><code class="formula">Prov(T) = {φ : T ⊢ φ}</code></td>
+</tr>
+<tr>
+<td>The ambition</td>
+<td>Find a complete, consistent extension</td>
+</tr>
+</table>
+
+<h4>The Obstruction</h4>
+<p>The Gödel sentence <code>G</code> is a 1-cocycle that can't be "filled in":</p>
+<ul>
+<li>Each local theory can decide some sentences</li>
+<li>But no global theory decides all sentences consistently</li>
+<li>The obstruction class: <code class="formula">[ω<sub>Gödel</sub>] ∈ H¹(Th, Prov)</code></li>
+</ul>
+
+<div class="key-insight">
+<strong>Key Parallel to Bell:</strong> Just as hidden variables would be a "global section" explaining quantum correlations, a complete consistent theory would be a "global section" deciding all mathematical truths. Both are obstructed.
+</div>
+
+<p><strong>Resource:</strong> Yanofsky (2003), "A Universal Approach to Self-Referential Paradoxes"</p>
+
+<h3>3.3 Information Bounds (Section E.3)</h3>
+<p><strong>Background needed:</strong> Basic black hole thermodynamics</p>
+
+<h4>The Setup</h4>
+<table>
+<tr>
+<th>Component</th>
+<th>Mathematical Object</th>
+</tr>
+<tr>
+<td>Context space</td>
+<td>Bounded spatial regions <code class="formula">R</code></td>
+</tr>
+<tr>
+<td>Encodable states</td>
+<td><code class="formula">Enc(R) = {P : S(P) ≤ S<sub>Bekenstein</sub>(R)}</code></td>
+</tr>
+<tr>
+<td>Restriction</td>
+<td>Marginalization to smaller region</td>
+</tr>
+</table>
+
+<h4>The Obstruction</h4>
+<p>As you try to glue local descriptions into a global one:</p>
+<ul>
+<li>More information requires more energy</li>
+<li>More energy in a region → gravitational collapse</li>
+<li>Horizon formation = presheaf becomes <em>undefined</em> = <strong>singular obstruction</strong></li>
+</ul>
+
+<div class="key-insight">
+<strong>Physical Intuition:</strong> A black hole is where the "information manifold" has a hole. You literally cannot define <code>Enc(R)</code> across the horizon—the presheaf structure breaks down entirely.
+</div>
+
+<hr>
+
+<h2 class="phase4">Phase 4: The Unification (Section E.4)</h2>
+
+<h3>The Three-Column Comparison</h3>
+
+<table>
+<tr>
+<th></th>
+<th>Bell</th>
+<th>Gödel</th>
+<th>Bekenstein</th>
+</tr>
+<tr>
+<td><strong>Context space</strong></td>
+<td>Measurement settings</td>
+<td>Formal theories</td>
+<td>Spatial regions</td>
+</tr>
+<tr>
+<td><strong>Presheaf</strong></td>
+<td>Outcome distributions</td>
+<td>Provable sentences</td>
+<td>Encodable states</td>
+</tr>
+<tr>
+<td><strong>Obstruction source</strong></td>
+<td>Self-measurement</td>
+<td>Self-reference</td>
+<td>Self-gravitation</td>
+</tr>
+<tr>
+<td><strong>Cohomology</strong></td>
+<td>H¹</td>
+<td>H¹</td>
+<td>H¹ (singular)</td>
+</tr>
+</table>
+
+<h3>The Reflexivity Pattern</h3>
+<p>All three obstructions arise from <strong>self-reference</strong>:</p>
+<ol>
+<li><strong>Bell:</strong> The measurement apparatus is part of the system being measured</li>
+<li><strong>Gödel:</strong> The formal system tries to prove statements about itself</li>
+<li><strong>Bekenstein:</strong> The region contains information about its own gravitational state</li>
+</ol>
+
+<div class="practice">
+<strong>Key Exercise:</strong> Write out the "diagonal argument" structure in each case:
+<ul>
+<li><strong>Gödel:</strong> "This sentence is not provable in this system"</li>
+<li><strong>Turing:</strong> "This program halts if and only if it doesn't"</li>
+<li><strong>Bell:</strong> "This outcome is determined if and only if it's not measured"</li>
+</ul>
+Identify the common logical structure.
+</div>
+
+<hr>
+
+<h2>Recommended Reading Sequence</h2>
+
+<div class="timeline">
+<span class="timeline-week">Week 1-2</span>
+<span><strong>Category basics:</strong> Awodey, <em>Category Theory</em>, Ch. 1, 4, 7<br>
+<em>Alternative:</em> Leinster, <em>Basic Category Theory</em> (free online)</span>
+
+<span class="timeline-week">Week 3-4</span>
+<span><strong>Sheaves:</strong> Mac Lane & Moerdijk, <em>Sheaves in Geometry and Logic</em>, Ch. 1-2<br>
+<em>Alternative:</em> Tennison, <em>Sheaf Theory</em> (more concise)</span>
+
+<span class="timeline-week">Week 5-6</span>
+<span><strong>Bell application:</strong> Abramsky & Brandenburger (2011) — read in full<br>
+<em>Secondary:</em> Okay et al. (2017) for topological proofs</span>
+
+<span class="timeline-week">Week 7-8</span>
+<span><strong>Logic and Gödel:</strong> Lawvere (1969), "Diagonal Arguments" (short, dense)<br>
+Yanofsky (2003), "Self-Referential Paradoxes" (more accessible)</span>
+
+<span class="timeline-week">Week 9-10</span>
+<span><strong>Synthesis:</strong> Re-read Appendix E with full background<br>
+Work through the comparison table actively</span>
+</div>
+
+<hr>
+
+<h2>Self-Test Questions</h2>
+
+<h3>Conceptual</h3>
+<ol>
+<li>What's the difference between a presheaf and a sheaf?</li>
+<li>Why does <code class="formula">H¹ ≠ 0</code> mean "no global section"?</li>
+<li>In what sense is a Bell inequality violation "topological"?</li>
+</ol>
+
+<h3>Technical</h3>
+<ol start="4">
+<li>Write out the presheaf <code>E</code> for the CHSH scenario explicitly.</li>
+<li>Why is the theory space <code>Th</code> a poset category?</li>
+<li>How does horizon formation make <code>Enc</code> undefined (singular)?</li>
+</ol>
+
+<h3>Synthesis</h3>
+<ol start="7">
+<li>All three obstructions live in <code>H¹</code>. Why not <code>H⁰</code> or <code>H²</code>?</li>
+<li>What would it mean if CSR could prove a "common source" exists? Why can't it?</li>
+<li>In what sense is "reflexivity generates incompleteness" more than an analogy?</li>
+</ol>
+
+<hr>
+
+<h2>Quick Reference Card</h2>
+
+<div class="quick-ref">
+<span class="label">PRESHEAF:</span>     F: C<sup>op</sup> → Set       <span class="comment">// local data assignment</span>
+<span class="label">SHEAF:</span>        Presheaf + gluing axiom works
+<span class="label">OBSTRUCTION:</span>  H¹(C, F) ≠ 0        <span class="comment">// local exists, global doesn't</span>
+
+<span class="label">BELL:</span>         Contexts = joint measurements
+              Presheaf = outcome distributions  
+              Obstruction = CHSH violation
+
+<span class="label">GÖDEL:</span>        Contexts = consistent theories
+              Presheaf = provable sentences
+              Obstruction = incompleteness
+
+<span class="label">BEKENSTEIN:</span>   Contexts = spatial regions
+              Presheaf = bounded-entropy states
+              Obstruction = horizon (singular)
+
+<span class="label">PATTERN:</span>      Self-reference → fixed-point failure → obstruction
+</div>
+
+<hr>
+
+<p style="text-align: center; color: #888; font-size: 0.9rem; margin-top: 3rem;">
+Study Guide for Appendix E: Cohomological Formalization of CSR<br>
+Companion to <em>Constrained Structural Realism — A Detailed Essay</em>
+</p>
+
+</body>
+</html>
+
