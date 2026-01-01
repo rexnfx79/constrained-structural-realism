@@ -1,5 +1,37 @@
 # Changelog
 
+## v1.4 — 2026-01-01
+Added Appendix E: Cohomological Formalization—a rigorous mathematical framework for CSR's "common structural pattern" claim.
+
+### Appendix E: New Sections
+- **E.1 Contextuality Sheaves**: Reproduces Abramsky-Brandenburger (2011) construction showing Bell nonlocality as non-trivial Čech cohomology
+- **E.2 The Gödel Sheaf**: Novel extension using topos-theoretic logic to formalize Gödelian incompleteness as obstruction to global section
+- **E.3 Information-Theoretic Presheaves**: Original contribution constructing presheaves for Bekenstein-type entropy bounds; horizons as cohomological singularities
+- **E.4 Structural Unification**: Analysis of shared properties across obstruction classes (H¹ degree, reflexivity pattern, logical form)
+
+### Mathematical Prerequisites Box
+- Added accessible introduction to presheaves, sheaves, and cohomology
+- Explains obstruction classes as "measures of failure to glue"
+
+### Unification Table
+- Shows Bell, Gödel, and Bekenstein limits share: same cohomological degree, same generative mechanism (reflexivity), same logical pattern
+
+### CSR-Consistent Conclusions
+- Explicitly states what CAN be proven (structural similarity) vs. what CANNOT be proven per CSR's own constraints (common source identity)
+- Frames obstruction pattern as "the strongest evidence embedded observers can obtain"
+
+### New References Section: "Sheaf theory, contextuality, and topos logic"
+- Abramsky & Brandenburger (2011) — foundational sheaf-theoretic contextuality
+- Okay et al. (2017) — topological proofs of contextuality
+- Lawvere (1969) — categorical diagonal arguments
+- Johnstone (2002) — topos theory compendium
+- Awodey (2010) — category theory introduction
+- Mac Lane & Moerdijk (1994) — sheaves in geometry and logic
+- Yanofsky (2003) — universal approach to self-referential paradoxes
+
+### Navigation Updates
+- Added Appendix E to sidebar and inline TOC
+
 ## v1.3 — 2025-12-28
 Added philosophical positioning to strengthen scholarly context:
 
