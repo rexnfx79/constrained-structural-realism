@@ -2,6 +2,8 @@
 ## Perspectives from Physics and Quantum Information Theory
 
 > **Status Note (28 Dec 2025):** The concerns in this review have been addressed in v1.2 of the manuscript. See `changelog.md` for details of revisions.
+>
+> **Plan Note (Jan 2026):** A new revision plan focusing on rigorous extensions (EFT, QIT, etc.) is available in `revision_plan.md`.
 
 ### Reviewers
 - **Physicist Perspective**: Focus on quantum mechanics, general relativity, and theoretical physics
