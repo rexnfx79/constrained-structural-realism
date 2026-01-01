@@ -6,6 +6,8 @@ This repository hosts the manuscript for *Constrained Structural Realism*, a phi
 
 **Read the manuscript:** [https://rexnfx79.github.io/constrained-structural-realism/](https://rexnfx79.github.io/constrained-structural-realism/)
 
+**Revision Plan:** See [revision_plan.md](revision_plan.md) for the roadmap of upcoming extensions (EFT, QIT, Cybernetics).
+
 ## Abstract
 
 Across logic, mathematics, physics, information theory, and control, some of the most consequential modern results are not new mechanisms but *boundary theorems*: proof has limits (Gödel), prediction has limits (Turing), local descriptions have limits (Bell), and information extraction has limits (quantum information and gravitational bounds).
