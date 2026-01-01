@@ -24,10 +24,10 @@
 }
 </script>
 <style>
-  body { font-family: Georgia, serif; font-size: 16px; max-width: 920px; margin: auto; line-height: 1.7; padding: 2.2em; padding-top: 4em; color: #1a1a1a; background-color: #fdfdfd; }
+  body { font-family: Georgia, serif; font-size: 16px; margin: 0; line-height: 1.7; color: #1a1a1a; background-color: #fdfdfd; }
   h1, h2, h3, h4 { font-family: "Helvetica Neue", Arial, sans-serif; line-height: 1.25; color: #111; }
   h1 { margin-top: 0; font-size: 2.5em; }
-  h2 { margin-top: 2em; border-bottom: 1px solid #eee; padding-bottom: 0.3em; scroll-margin-top: 4em; }
+  h2 { margin-top: 2em; border-bottom: 1px solid #eee; padding-bottom: 0.3em; scroll-margin-top: 5em; }
   .subtitle { font-size: 1.2em; color: #555; margin-top: -0.8em; margin-bottom: 1em; font-style: italic; }
   .author-info { text-align: center; margin-top: 1.5em; margin-bottom: 2em; color: #555; font-size: 1em; line-height: 1.6; }
   .small { font-size: 0.9em; color: #666; }
@@ -35,10 +35,26 @@
   .toc h2 { margin-top: 0; border-bottom: none; font-size: 1.5em; }
   blockquote { margin: 1.5em 0; padding-left: 1.2em; border-left: 4px solid #ddd; color: #444; font-style: italic; }
   code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; background: #f5f5f5; padding: 0.2em 0.4em; border-radius: 3px; }
-  /* Navbar styles */
-  .navbar { position: fixed; top: 0; left: 0; right: 0; background: #fff; border-bottom: 1px solid #eee; padding: 0.8em; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.03); display: flex; justify-content: center; gap: 1.5em; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.95em; }
+  
+  /* Layout */
+  .document-container { display: grid; grid-template-columns: 280px 1fr; gap: 4em; max-width: 1400px; margin: 0 auto; padding: 0 2em; }
+  .content { max-width: 920px; padding-top: 6em; padding-bottom: 4em; }
+  
+  /* Sidebar */
+  .sidebar { position: sticky; top: 6em; height: calc(100vh - 8em); overflow-y: auto; padding-right: 1.5em; border-right: 1px solid #eee; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.9em; }
+  .sidebar-toc h3 { font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 1em; margin-top: 2em; }
+  .sidebar-toc ol { list-style: none; padding: 0; margin: 0; }
+  .sidebar-toc li { margin-bottom: 0.6em; line-height: 1.4; }
+  .sidebar-toc a { text-decoration: none; color: #666; transition: color 0.2s, padding-left 0.2s; display: block; }
+  .sidebar-toc a:hover { color: #0066cc; }
+  .sidebar-toc a.active { color: #0066cc; font-weight: 600; padding-left: 0.5em; border-left: 2px solid #0066cc; }
+
+  /* Navbar & Progress Bar */
+  .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); border-bottom: 1px solid #eee; padding: 0.8em; z-index: 1000; display: flex; justify-content: center; gap: 1.5em; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 0.95em; }
   .navbar a { text-decoration: none; color: #444; font-weight: 500; transition: color 0.2s; }
   .navbar a:hover { color: #0066cc; }
+  .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: transparent; z-index: 1001; }
+  .progress-bar { height: 100%; background: #0066cc; width: 0%; transition: width 0.1s; }
   /* Embedded math fonts (KaTeX WOFF2) for consistent “Wikipedia-like” formula rendering. */
   @font-face {
     font-family: "KaTeX_Main";
@@ -73,19 +89,23 @@
   a:hover { text-decoration: underline; }
   .toc ol { padding-left: 1.2em; }
   .toc li { margin: 0.4em 0; }
-  @media (max-width: 600px) {
-    body { padding: 1.2em; font-size: 16px; }
-    h1 { font-size: 2em; }
+  @media (max-width: 1100px) {
+    .document-container { display: block; padding: 0 1.2em; }
+    .sidebar { display: none; }
+    .content { padding-top: 4em; }
+    .navbar { font-size: 0.85em; gap: 0.8em; }
   }
   @media print {
     body { max-width: 100%; padding: 0; font-size: 12pt; }
     .toc, .note { border: 1px solid #ccc; }
     a { text-decoration: none; color: #000; }
+    .navbar, .sidebar, .progress-container { display: none; }
   }
 .footnote{font-size:0.9em;color:#444;border-left:3px solid #ddd;padding-left:0.9em;margin-top:0.5em;}
 </style>
 </head>
 <body>
+<div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
 <nav class="navbar">
   <a href="#">Top</a>
   <a href="#puzzle">Core Argument</a>
@@ -93,7 +113,41 @@
   <a href="#appendix-a">Appendices</a>
   <a href="#references">References</a>
 </nav>
-<h1>Constrained Structural Realism</h1>
+
+<div class="document-container">
+  <aside class="sidebar">
+    <nav class="sidebar-toc">
+      <h3>Navigation</h3>
+      <ol>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#claims">Key Claims</a></li>
+        <li><a href="#definitions">Definitions</a></li>
+        <li><a href="#puzzle">A Puzzle about Progress</a></li>
+        <li><a href="#pattern">The Recurring Pattern</a></li>
+        <li><a href="#embedded">Embedded Observer Constraint</a></li>
+        <li><a href="#russell-godel">Russell and Gödel</a></li>
+        <li><a href="#turing">Computation & Turing</a></li>
+        <li><a href="#bell">Bell & Nonlocality</a></li>
+        <li><a href="#qit">Quantum Information</a></li>
+        <li><a href="#gravity">Gravity & Holography</a></li>
+        <li><a href="#constants">Structural Constants</a></li>
+        <li><a href="#singularities">Singularities</a></li>
+        <li><a href="#goodhart">Goodhart's Law</a></li>
+        <li><a href="#csr">The CSR Framework</a></li>
+        <li><a href="#implications">Research Implications</a></li>
+        <li><a href="#formalization">Formalization</a></li>
+        <li><a href="#objections">Objections</a></li>
+        <li><a href="#appendix-a">Appendix A: Cosmol. Constant</a></li>
+        <li><a href="#appendix-b">Appendix B: Naturalness</a></li>
+        <li><a href="#appendix-c">Appendix C: Intelligence</a></li>
+        <li><a href="#appendix-d">Appendix D: Arrow of Time</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Constrained Structural Realism</h1>
 <p class="subtitle">Why deep "no‑go" limits recur across logic, physics, information, and social systems — and what that suggests about knowledge from the inside</p>
 <p class="author-info">
 <strong>Alexander Seto</strong><br/>
@@ -1224,7 +1278,40 @@ This list is intentionally selective and emphasizes primary sources or authorita
 <li>Wolpert, D. H. (2008). Physical limits of inference. <em>Physica D: Nonlinear Phenomena</em>, <em>237</em>(9), 1257–1281.</li>
 <li>Rovelli, C. (2018). <em>The order of time</em>. Riverhead Books.</li>
 </ul>
-</section>
+  </main>
+</div>
+<script>
+  // Progress Bar Logic
+  window.onscroll = function() { updateProgressBar() };
+  function updateProgressBar() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+  }
+
+  // ScrollSpy Logic
+  const navLinks = document.querySelectorAll(".sidebar-toc a");
+  const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    const scrollPos = window.scrollY || window.pageYOffset;
+    
+    sections.forEach(section => {
+      if (section && scrollPos >= section.offsetTop - 200) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
 </body>
 </html>
 
