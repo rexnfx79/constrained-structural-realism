@@ -1,2 +1,26 @@
+# Robots.txt for Constrained Structural Realism
+# https://rexnfx79.github.io/constrained-structural-realism/
+
 User-agent: *
 Allow: /
+
+# Sitemap location
+Sitemap: https://rexnfx79.github.io/constrained-structural-realism/sitemap.xml
+
+# Disallow draft/internal files
+Disallow: /*.md$
+Disallow: /changelog.md
+Disallow: /revision_plan.md
+Disallow: /skeptics_review.md
+Disallow: /holistic_review.md
+Disallow: /blog_post_ideas.md
+Disallow: /future_extensions.md
+Disallow: /appendix_e_plan.md
+
+# Allow search engines to index main content
+Allow: /index.html
+Allow: /study_guide_appendix_e.html
+Allow: /og-image.png
+
+# Crawl-delay for politeness (optional)
+Crawl-delay: 1
