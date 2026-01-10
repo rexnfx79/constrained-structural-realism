@@ -1,5 +1,46 @@
 # Changelog
 
+## v1.5 — 2026-01-10
+Differentiation revisions: positioned CSR as operational framework distinct from narrative limit-accounts (Gleiser, Rescher, Floridi).
+
+### New Section: "Prior Art and Positioning"
+- Added after Definitions, before "A puzzle about progress"
+- Acknowledges Gleiser *The Island of Knowledge* (2014), Rescher *The Limits of Science* (1999), Floridi *The Philosophy of Information* (2011)
+- Explicitly states what CSR shares with these works vs. what CSR adds:
+  - Unified constraint-template (not just catalog)
+  - Research triage heuristics (operational, not existential)
+  - Falsifiable structure (if limits are unrelated, CSR fails)
+
+### Abstract Enhancement
+- Added sentence emphasizing CSR provides "classification scheme and research-prioritization heuristics" vs. narrative accounts
+
+### New Key Claim
+- Added 6th claim: "Operational, not existential"—CSR's value is research triage, not philosophical meaning-making
+
+### Pattern Section Enhancement
+- Boxed the 4-step CSR template for visibility
+- Added template instantiation table showing how Gödel, Turing, Bell, Bekenstein, and Goodhart each fill in the Ambition/Constraint/Conflict/Resolution slots
+- Added note clarifying structural similarity vs. identity
+
+### CSR Framework Section
+- Added "What CSR Does Not Claim" note box preempting misreadings:
+  - Does not discover new limits
+  - Does not claim limits are identical
+  - Does not compete on existential meaning
+  - Does not predict specific theorems
+  - Does not claim novelty in observing science has limits
+
+### Implications Section Renamed
+- Changed "Implications: how CSR reframes research priorities" → "Research triage: CSR as operational guide"
+- Updated sidebar and main TOC
+
+### Closing Section Enhancement
+- Added differentiation paragraph contrasting CSR with Gleiser/Rescher/Floridi
+- Emphasizes practical utility as test of CSR, not philosophical persuasion
+
+### Navigation Updates
+- Added "Prior Art" to sidebar and main TOC
+
 ## v1.4 — 2026-01-01
 Added Appendix E: Cohomological Formalization—a rigorous mathematical framework for CSR's "common structural pattern" claim.
 
